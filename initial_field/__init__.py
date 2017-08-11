@@ -5,9 +5,10 @@ from django.forms.widgets import HiddenInput
 
 class InitialFieldsMixin(object):
     def clean(self):
+        cleaned_data = super(InitialFieldsMixin, self).clean()
         for hidden_field in self.initial_fields:
-            self.cleaned_data[hidden_field] = self.initial[hidden_field]
-        super(InitialFieldsMixin, self).clean()
+            cleaned_data[hidden_field] = self.initial[hidden_field]
+        return cleaned_data
 
     def __init__(self, *args, **kwargs):
         super(InitialFieldsMixin, self).__init__(*args, **kwargs)
