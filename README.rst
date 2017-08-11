@@ -40,12 +40,6 @@ Then set initial value in your FormView:
 		 def get_initial(self):
 			  return {'my_field': "some value"}
 
-
-Features
---------
-
-* TODO
-
 Running Tests
 -------------
 
